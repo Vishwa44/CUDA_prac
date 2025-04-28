@@ -1,0 +1,78 @@
+==PROF== Connected to process 571142 (/home/vishwa/miniconda3/envs/oumi/bin/python3.11)
+==PROF== Profiling "block_tiled_2D_matmul_kernel" - 0: 0%....50%....100% - 8 passes
+using tiled CUDA:  torch.Size([1024, 2048])
+using tiled CUDA time  1.3217647075653076
+==PROF== Disconnected from process 571142
+[571142] python3.11@127.0.0.1
+  block_tiled_2D_matmul_kernel(float *, float *, float *, int, int, int) (64, 32, 1)x(16, 16, 1), Context 1, Stream 7, Device 0, CC 8.6
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Mhz       900.00
+    Elapsed Cycles                cycle    9,911,645
+    Memory Throughput                 %        88.59
+    DRAM Throughput                   %        31.65
+    Duration                         ms        11.01
+    L1/TEX Cache Throughput           %        89.59
+    L2 Cache Throughput               %        29.72
+    SM Active Cycles              cycle 9,800,296.30
+    Compute (SM) Throughput           %        87.53
+    ----------------------- ----------- ------------
+
+    INF   This workload is utilizing greater than 80.0% of the available compute or memory performance of the device.   
+          To further improve performance, work will likely need to be shifted from the most utilized to another unit.   
+          Start by analyzing L1 in the Memory Workload Analysis section.                                                
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  2,048
+    Registers Per Thread             register/thread              40
+    Shared Memory Configuration Size           Kbyte           65.54
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            4.10
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread         524,288
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               11.38
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block            6
+    Block Limit Shared Mem                block           12
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        96.90
+    Achieved Active Warps Per SM           warp        46.51
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- -------------
+    Metric Name                Metric Unit  Metric Value
+    -------------------------- ----------- -------------
+    Average DRAM Active Cycles       cycle    24,262,888
+    Total DRAM Elapsed Cycles        cycle   462,145,536
+    Average L1 Active Cycles         cycle  9,800,296.30
+    Total L1 Elapsed Cycles          cycle   297,305,620
+    Average L2 Active Cycles         cycle  9,503,005.54
+    Total L2 Elapsed Cycles          cycle   229,950,192
+    Average SM Active Cycles         cycle  9,800,296.30
+    Total SM Elapsed Cycles          cycle   297,305,620
+    Average SMSP Active Cycles       cycle  9,801,345.97
+    Total SMSP Elapsed Cycles        cycle 1,189,222,480
+    -------------------------- ----------- -------------
+

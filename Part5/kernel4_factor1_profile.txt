@@ -1,0 +1,78 @@
+==PROF== Connected to process 571473 (/home/vishwa/miniconda3/envs/oumi/bin/python3.11)
+==PROF== Profiling "block_tiled_2D_matmul_kernel" - 0: 0%....50%....100% - 8 passes
+using tiled CUDA:  torch.Size([1024, 2048])
+using tiled CUDA time  1.649543046951294
+==PROF== Disconnected from process 571473
+[571473] python3.11@127.0.0.1
+  block_tiled_2D_matmul_kernel(float *, float *, float *, int, int, int) (128, 64, 1)x(16, 16, 1), Context 1, Stream 7, Device 0, CC 8.6
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- -------------
+    Metric Name             Metric Unit  Metric Value
+    ----------------------- ----------- -------------
+    DRAM Frequency                  Ghz          6.99
+    SM Frequency                    Mhz        900.00
+    Elapsed Cycles                cycle    27,556,194
+    Memory Throughput                 %         97.44
+    DRAM Throughput                   %         22.68
+    Duration                         ms         30.62
+    L1/TEX Cache Throughput           %         97.79
+    L2 Cache Throughput               %         21.39
+    SM Active Cycles              cycle 27,463,112.47
+    Compute (SM) Throughput           %         97.44
+    ----------------------- ----------- -------------
+
+    INF   This workload is utilizing greater than 80.0% of the available compute or memory performance of the device.   
+          To further improve performance, work will likely need to be shifted from the most utilized to another unit.   
+          Start by analyzing workloads in the Compute Workload Analysis section.                                        
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                  8,192
+    Registers Per Thread             register/thread              36
+    Shared Memory Configuration Size           Kbyte           32.77
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            2.05
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread       2,097,152
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                               45.51
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block            6
+    Block Limit Shared Mem                block           10
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        99.16
+    Achieved Active Warps Per SM           warp        47.60
+    ------------------------------- ----------- ------------
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- -------------
+    Metric Name                Metric Unit  Metric Value
+    -------------------------- ----------- -------------
+    Average DRAM Active Cycles       cycle 48,339,085.33
+    Total DRAM Elapsed Cycles        cycle 1,284,854,784
+    Average L1 Active Cycles         cycle 27,463,112.47
+    Total L1 Elapsed Cycles          cycle   826,867,360
+    Average L2 Active Cycles         cycle 26,564,442.33
+    Total L2 Elapsed Cycles          cycle   639,303,528
+    Average SM Active Cycles         cycle 27,463,112.47
+    Total SM Elapsed Cycles          cycle   826,867,360
+    Average SMSP Active Cycles       cycle 27,466,280.17
+    Total SMSP Elapsed Cycles        cycle 3,307,469,440
+    -------------------------- ----------- -------------
+

@@ -1,0 +1,93 @@
+==PROF== Connected to process 570719 (/home/vishwa/miniconda3/envs/oumi/bin/python3.11)
+==PROF== Profiling "block_tiled_2D_matmul_kernel" - 0: 0%....50%....100% - 8 passes
+using tiled CUDA:  torch.Size([1024, 2048])
+using tiled CUDA time  1.240682601928711
+==PROF== Disconnected from process 570719
+[570719] python3.11@127.0.0.1
+  block_tiled_2D_matmul_kernel(float *, float *, float *, int, int, int) (32, 16, 1)x(16, 16, 1), Context 1, Stream 7, Device 0, CC 8.6
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    DRAM Frequency                  Ghz         6.99
+    SM Frequency                    Mhz       899.99
+    Elapsed Cycles                cycle    5,612,972
+    Memory Throughput                 %        82.88
+    DRAM Throughput                   %        25.82
+    Duration                         ms         6.24
+    L1/TEX Cache Throughput           %        87.27
+    L2 Cache Throughput               %        26.61
+    SM Active Cycles              cycle 5,327,945.80
+    Compute (SM) Throughput           %        56.16
+    ----------------------- ----------- ------------
+
+    INF   This workload is utilizing greater than 80.0% of the available compute or memory performance of the device.   
+          To further improve performance, work will likely need to be shifted from the most utilized to another unit.   
+          Start by analyzing L1 in the Memory Workload Analysis section.                                                
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                    512
+    Registers Per Thread             register/thread              56
+    Shared Memory Configuration Size           Kbyte           65.54
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block       byte/block               0
+    Static Shared Memory Per Block       Kbyte/block            8.19
+    # SMs                                         SM              30
+    Stack Size                                                 1,024
+    Threads                                   thread         131,072
+    # TPCs                                                        15
+    Enabled TPC IDs                                              all
+    Uses Green Context                                             0
+    Waves Per SM                                                4.27
+    -------------------------------- --------------- ---------------
+
+    OPT   Est. Speedup: 20%                                                                                             
+          A wave of thread blocks is defined as the maximum number of blocks that can be executed in parallel on the    
+          target GPU. The number of blocks in a wave depends on the number of multiprocessors and the theoretical       
+          occupancy of the kernel. This kernel launch results in 4 full waves and a partial wave of 32 thread blocks.   
+          Under the assumption of a uniform execution duration of all thread blocks, this partial wave may account for  
+          up to 20.0% of the total runtime of this kernel. Try launching a grid with no partial wave. The overall       
+          impact of this tail effect also lessens with the number of full waves executed for a grid. See the Hardware   
+          Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model) description for     
+          more details on launch configurations.                                                                        
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block            4
+    Block Limit Shared Mem                block            7
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           32
+    Theoretical Occupancy                     %        66.67
+    Achieved Occupancy                        %        62.04
+    Achieved Active Warps Per SM           warp        29.78
+    ------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 33.33%                                                                                    
+          The 8.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the       
+          hardware maximum of 12. This kernel's theoretical occupancy (66.7%) is limited by the number of required      
+          registers.                                                                                                    
+
+    Section: GPU and Memory Workload Distribution
+    -------------------------- ----------- ------------
+    Metric Name                Metric Unit Metric Value
+    -------------------------- ----------- ------------
+    Average DRAM Active Cycles       cycle   11,208,976
+    Total DRAM Elapsed Cycles        cycle  261,712,896
+    Average L1 Active Cycles         cycle 5,327,945.80
+    Total L1 Elapsed Cycles          cycle  168,299,750
+    Average L2 Active Cycles         cycle 5,023,517.08
+    Total L2 Elapsed Cycles          cycle  130,220,856
+    Average SM Active Cycles         cycle 5,327,945.80
+    Total SM Elapsed Cycles          cycle  168,299,750
+    Average SMSP Active Cycles       cycle 5,327,123.06
+    Total SMSP Elapsed Cycles        cycle  673,199,000
+    -------------------------- ----------- ------------
+
